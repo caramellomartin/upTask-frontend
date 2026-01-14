@@ -17,8 +17,7 @@ export default function DashboardView() {
   if (data) return (
     <>
       <h1 className=" text-5xl font-black">Mis Proyectos</h1>
-      <p className=" text-2xl font-light text-gray-500 mt-5">Maneja y administra tus proyectos</p>
-
+      <p className=" text-2xl font-light text-gray-500 my-10">Administra tus proyectos</p>
       <nav className=" my-5">
         <Link
           className=" bg-purple-400 hover:bg-purple-500 px-10 py-3 text-white text-xl font-bold cursor-pointer transition-colors rounded-xl"
@@ -31,17 +30,17 @@ export default function DashboardView() {
       {data.length ? (
         <ul role="list" className="divide-y divide-gray-100 border border-gray-100 mt-10 bg-white shadow-lg">
           {data.map((project) => (
-            <li key={project._id} className="flex justify-between gap-x-6 px-5 py-10">
+            <li key={project._id} className="flex justify-between gap-x-6 px-5 py-8">
               <div className="flex min-w-0 gap-x-4">
-                <div className="min-w-0 flex-auto space-y-2">
+                <div className="min-w-0 flex-auto space-y-3">
                   <Link to="#"
                     className="text-gray-600 cursor-pointer hover:underline text-3xl font-bold"
                   >{project.projectName}</Link>
-                  <p className="text-sm text-gray-400">
+                  <p className="text-sm text-gray-400 mt-5">
                     Cliente: {project.clientName}
                   </p>
                   <p className="text-sm text-gray-400">
-                    {project.description}
+                    Info: {project.description}
                   </p>
                 </div>
               </div>
@@ -49,7 +48,7 @@ export default function DashboardView() {
                 <Menu as="div" className="relative flex-none">
                   <MenuButton className="-m-2.5 block p-2.5 text-gray-500 hover:text-gray-900">
                     <span className="sr-only">opciones</span>
-                    <EllipsisVerticalIcon className="h-9 w-9" aria-hidden="true" />
+                    <EllipsisVerticalIcon className="h-9 w-9 cursor-pointer" aria-hidden="true" />
                   </MenuButton>
                   <Transition as={Fragment} enter="transition ease-out duration-100"
                     enterFrom="transform opacity-0 scale-95" enterTo="transform opacity-100 scale-100"
@@ -73,7 +72,7 @@ export default function DashboardView() {
                       <MenuItem>
                         <button
                           type='button'
-                          className='block px-3 py-1 text-sm leading-6 text-red-500'
+                          className='block px-3 py-1 text-sm leading-6 text-red-500 cursor-pointer'
                           onClick={() => { }}
                         >
                           Eliminar Proyecto
